@@ -10,7 +10,17 @@
     <body>
         <div class="container">
             <div class="col-xs-3">
-                <?php $this->load->view('users/login_view');?>
+                <?php
+                if( $this->session->userdata('logged_in') != TRUE ){
+                    // display login form
+                    $this->load->view('users/login_view');
+                }
+                else {
+                    // user logged in, display logout link
+                    echo '<h4>Welcome '. $this->session->userdata('username') .'</h4>';
+                    
+                }
+                ?>
             </div>
             <div class="col-xs-9">
                 <?php $this->load->view($main_view); ?>
