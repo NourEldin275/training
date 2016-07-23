@@ -38,12 +38,21 @@ class Users extends My_Controller {
                 );
 
                 $this->session->set_userdata($user_data);
-                redirect('home/index');
+
+                $data['main_view'] = 'admin_view';
+                $this->load->view('layouts/main', $data);
+                //redirect('home/index');
             }
             else {
                 redirect('home/index');
             }
         }
+    }
+
+
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('home/index');
     }
 
 }

@@ -18,7 +18,7 @@
                 else {
                     // user logged in, display logout link
                     echo '<h4>Welcome '. $this->session->userdata('username') .'</h4>';
-                    
+                    $this->load->view('users/logout_view');
                 }
                 ?>
             </div>
