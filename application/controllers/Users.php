@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Users extends My_Controller {
 
+    public function register(){
+        $data['main_view'] = 'users/register_view';
+        $this->load->view('layouts/main', $data);
+    }
+
     public function login(){
         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]', array(
             'min_length' => 'Your username is less than 3 characters shank7',
